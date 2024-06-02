@@ -1,12 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <div className="bg-gray-800 h-[50px] text-white flex items-center justify-between px-10">
       <div className="flex flex-row gap-10">
         <Link to="/">FlixPatrol</Link>
-        <Link to="/top10">TOP 10</Link>
+        <NavLink
+          to="/top10"
+          className={({ isActive }) => (isActive ? "bg-gray-400" : "navbutton")}
+        >
+          TOP 10
+        </NavLink>
       </div>
       <div className="flex flex-row gap-5">
         <form>
@@ -15,7 +20,12 @@ function Navbar() {
             placeholder="Search for movies or TV shows..."
           ></input>
         </form>
-        <Link to="/signin">Sign in</Link>
+        <NavLink
+          to="/signin"
+          className={({ isActive }) => (isActive ? "bg-gray-400" : null)}
+        >
+          Sign in
+        </NavLink>
       </div>
     </div>
   );
