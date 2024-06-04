@@ -2,6 +2,7 @@ import React from "react";
 import { platforms } from "../../data";
 import SelectBar from "../../component/SelectBar";
 import SelectBarContainer from "../../component/SelectBarContainer";
+import Top10BarContainer from "./components/Top10BarContainer";
 
 function Top10() {
   const today = new Date().toDateString();
@@ -21,6 +22,8 @@ function Top10() {
           charts. Check the title detail for more streaming analytics.
         </p>
       </div>
+      <Top10BarContainer platform={"netflix"} type={"movies"} />
+      <Top10BarContainer platform={"netflix"} type={"tv"} />
     </div>
   );
 }

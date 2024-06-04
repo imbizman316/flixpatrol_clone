@@ -26,17 +26,28 @@ function SelectBarContainer({ bars }) {
     setBarSelected(temp);
   }
 
+  function handleAllClose() {
+    const temp = [];
+
+    barSelected.forEach((item) => {
+      temp.push({ ...item, selected: false });
+    });
+
+    setBarSelected(temp);
+  }
+
   return (
     <div className="flex flex-row gap-1">
-      {bars.map((bar, i) => (
+      {/* {bars.map((bar, i) => (
         <SelectBar
           key={i}
           type={bar}
           barSelected={barSelected}
           setBarSelected={setBarSelected}
           handleSelect={handleSelect}
+          handleAllClose={handleAllClose}
         />
-      ))}
+      ))} */}
     </div>
   );
 }

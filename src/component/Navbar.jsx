@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 function Navbar() {
   return (
@@ -14,12 +15,7 @@ function Navbar() {
         </NavLink>
       </div>
       <div className="flex flex-row gap-5">
-        <form>
-          <input
-            className="text-[13px] w-[200px]"
-            placeholder="Search for movies or TV shows..."
-          ></input>
-        </form>
+        <Searchbar />
         <NavLink
           to="/signin"
           className={({ isActive }) => (isActive ? "bg-gray-400" : null)}
