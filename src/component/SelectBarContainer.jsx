@@ -7,7 +7,11 @@ function SelectBarContainer({ bars }) {
   useEffect(() => {
     const newBarSelected = [];
 
-    bars.forEach((bar) => newBarSelected.push({ name: bar, selected: false }));
+    bars &&
+      bars.length &&
+      bars.forEach((bar) =>
+        newBarSelected.push({ name: bar, selected: false })
+      );
 
     setBarSelected(newBarSelected);
   }, []);
@@ -15,13 +19,15 @@ function SelectBarContainer({ bars }) {
   function handleSelect(type) {
     const temp = [];
 
-    barSelected.forEach((item) => {
-      if (item.name === type) {
-        temp.push({ ...item, selected: !item.selected });
-      } else {
-        temp.push({ ...item, selected: false });
-      }
-    });
+    barSelected &&
+      barSelected.length &&
+      barSelected.forEach((item) => {
+        if (item.name === type) {
+          temp.push({ ...item, selected: !item.selected });
+        } else {
+          temp.push({ ...item, selected: false });
+        }
+      });
 
     setBarSelected(temp);
   }
@@ -38,7 +44,7 @@ function SelectBarContainer({ bars }) {
 
   return (
     <div className="flex flex-row gap-1">
-      {/* {bars.map((bar, i) => (
+      {bars.map((bar, i) => (
         <SelectBar
           key={i}
           type={bar}
@@ -47,7 +53,7 @@ function SelectBarContainer({ bars }) {
           handleSelect={handleSelect}
           handleAllClose={handleAllClose}
         />
-      ))} */}
+      ))}
     </div>
   );
 }

@@ -4,15 +4,13 @@ import { useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 // require("dotenv").config();
 
-console.log(process.env);
-
 function FBLoginButton() {
   const [profile, setProfile] = useState(null);
 
   return (
     <div>
       <LoginSocialFacebook
-        appId={process.env.FACEBOOK_APP_ID}
+        appId={process.env.REACT_APP_FACEBOOK_APP_ID}
         onResolve={(response) => {
           console.log(response);
           setProfile(response.data);

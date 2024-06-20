@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GlobalState } from "./context";
+// +
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,7 @@ root.render(
     {/* <GlobalState> */}
     <BrowserRouter>
       <GlobalState>
-        <GoogleOAuthProvider clientId={process.env}>
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_APP_ID}>
           <App />
         </GoogleOAuthProvider>
       </GlobalState>

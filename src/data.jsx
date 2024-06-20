@@ -71,6 +71,22 @@ export const platforms = {
   ],
 };
 
+export const mediaType = {
+  header: "media",
+  children: [
+    {
+      id: 0,
+      title: "movie",
+      icon: "https://cdn-icons-png.flaticon.com/512/2503/2503508.png",
+    },
+    {
+      id: 1,
+      title: "tv",
+      icon: "https://cdn-icons-png.flaticon.com/512/8853/8853263.png",
+    },
+  ],
+};
+
 export const countries = {
   header: "Worldwide",
   children: [
@@ -145,3 +161,26 @@ export const top10 = {
     ],
   },
 };
+
+export const discussions = [
+  {
+    id: 0,
+    topicStarter: {
+      title: "Who's the best actor of all time?",
+      writer: "TheUsualSuspect",
+      writtenWhen: "yesterday",
+      message:
+        "It just hit me, Robert DeNero is by far the best actor I've seen in my life time.  What about you guys?  Who is the best actor of all time in you book?",
+    },
+  },
+  {
+    id: 1,
+    topicStarter: {
+      title: "I'm done with movies...",
+      writer: "Movie4Life",
+      writtenWhen: "2 days ago",
+      message:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque non ipsa provident dicta dolores, soluta excepturi quasi eius possimus dolor animi officiis. Provident nobis ducimus a incidunt voluptatibus cum quam.",
+    },
+  },
+];

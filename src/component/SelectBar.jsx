@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { platforms, countries, durations } from "../data";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { platforms, countries, durations, mediaType } from "../data";
+import { GlobalContext } from "../context";
 
 function SelectBar({
   type,
@@ -9,12 +10,16 @@ function SelectBar({
   handleAllClose,
 }) {
   const dropDownRef = useRef(null);
+  const { handleSelectionChange, setPage } = useContext(GlobalContext);
+
+  console.log(dropDownRef.current);
 
   const handleClickOutside = (event) => {
-    if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
-      console.log("hey");
-      handleAllClose();
-    }
+    // if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+    //   handleAllClose();
+    // } else {
+    //   return;
+    // }
   };
 
   useEffect(() => {
@@ -25,7 +30,7 @@ function SelectBar({
     };
   }, []);
 
-  let showChildren = barSelected?.find((bar) => bar.name === type).selected;
+  let showChildren = barSelected.find((bar) => bar.name === type)?.selected;
   console.log(showChildren);
 
   // barSelected?.forEach((bar) => {
@@ -46,18 +51,21 @@ function SelectBar({
     case "dates":
       dataType = durations;
       break;
+    case "mediaType":
+      dataType = mediaType;
+      break;
     default:
       dataType = [];
   }
 
   return (
     <div ref={dropDownRef} className="relative inline-block">
-      <div>{showChildren.toString()}</div>
+      <div>{showChildren?.toString()}</div>
       <div
         className="bg-gray-900 w-[8em] px-2 py-1 text-white hover:bg-gray-500 duration-300"
         onClick={() => handleSelect(type)}
       >
-        <div>{dataType.header}</div>
+        <div className="text-center uppercase">{dataType.header}</div>
       </div>
 
       <div
@@ -67,17 +75,22 @@ function SelectBar({
             : "opacity-0 scale-y-0 invisible"
         }`}
       >
-        {dataType.children.map((child, i) => (
+        {dataType?.children?.map((child, i) => (
           <div
             key={i}
             className="flex flex-row bg-gray-950 text-white w-[10em] px-2 py-1 hover:bg-gray-500 duration-300 gap-3"
+            onClick={() => {
+              handleSelectionChange("media", child.title);
+              setPage(1);
+              handleSelect(type);
+            }}
           >
             <img
               className="w-5 h-5 object-cover"
               src={child.icon}
               alt={child.title}
             />
-            <div>{child.title}</div>
+            <div className="uppercase">{child.title}</div>
           </div>
         ))}
       </div>

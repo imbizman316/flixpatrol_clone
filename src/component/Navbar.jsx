@@ -13,6 +13,12 @@ function Navbar() {
         >
           TOP 10
         </NavLink>
+        <NavLink
+          to="/board"
+          className={({ isActive }) => (isActive ? "bg-gray-400" : "navbutton")}
+        >
+          MESSAGE BOARD
+        </NavLink>
       </div>
       <div className="flex flex-row gap-5">
         <Searchbar />

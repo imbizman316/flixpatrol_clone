@@ -56,7 +56,7 @@ function SignIn() {
             </div>
           </div>
           <div className="flex flex-row justify-center gap-5 items-center mt-5">
-            <Link>New here? Sign up!</Link>
+            <Link to="/signup">New here? Sign up!</Link>
             <Link>Forgot password?</Link>
           </div>
         </div>
