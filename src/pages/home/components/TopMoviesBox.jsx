@@ -29,13 +29,16 @@ function TopMoviesBox() {
   useEffect(() => {
     const temp = [];
 
-    for (let i = 0; i < 10; i++) {
-      polishHundMovies &&
-        polishHundMovies.length &&
-        temp.push(polishHundMovies.slice(i * 10, i * 10 + 10));
+    async function getTemp() {
+      for (let i = 0; i < 10; i++) {
+        polishHundMovies &&
+          polishHundMovies.length &&
+          temp.push(polishHundMovies.slice(i * 10, i * 10 + 10));
+      }
+      return temp;
     }
 
-    setSplitHundMovies(temp);
+    getTemp().then(setSplitHundMovies(temp));
   }, [polishHundMovies]);
 
   // console.log(splitHundMovies);

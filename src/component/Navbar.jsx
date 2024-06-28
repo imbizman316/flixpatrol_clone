@@ -9,13 +9,13 @@ function Navbar() {
         <Link to="/">FlixPatrol</Link>
         <NavLink
           to="/top10"
-          className={({ isActive }) => (isActive ? "bg-gray-400" : "navbutton")}
+          className={({ isActive }) => (isActive ? "font-bold" : "navbutton")}
         >
           TOP 10
         </NavLink>
         <NavLink
           to="/board"
-          className={({ isActive }) => (isActive ? "bg-gray-400" : "navbutton")}
+          className={({ isActive }) => (isActive ? "font-bold" : "navbutton")}
         >
           MESSAGE BOARD
         </NavLink>
