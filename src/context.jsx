@@ -17,8 +17,6 @@ export function GlobalState({ children }) {
 
   const navigate = useNavigate();
 
-  console.log("API Key:", process.env.REACT_APP_ACCOUNT_KEY);
-
   async function fetchMovies() {
     const url = `https://api.themoviedb.org/3/discover/${mediaType}?sort_by=popularity.desc&api_key=${process.env.REACT_APP_ACCOUNT_KEY}&page=${page}`;
 
@@ -41,7 +39,6 @@ export function GlobalState({ children }) {
         .then((response) => tempHundredMovies.push(response.data.results))
         .catch((err) => {
           console.log(err.message);
-          console.log("fucked up");
         });
     }
 
@@ -58,8 +55,6 @@ export function GlobalState({ children }) {
         break;
     }
   }
-
-  // console.log(hundredMovies);
 
   async function searchMovie(keyword) {
     const url = `https://api.themoviedb.org/3/search/movie?&api_key=${process.env.REACT_APP_ACCOUNT_KEY}&query=${keyword}`;
